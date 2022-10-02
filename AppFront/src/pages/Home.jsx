@@ -3,9 +3,11 @@ import ReportList from '../components/table/ReportList';
 import Context from '../context';
 import { useContext, useEffect } from 'react';
 import axios from 'axios';
-import Error from '../components/error/Error'
+import Error from '../components/error/Error';
+import {baseURL} from '../config/config';
 
 const Home = () => {
+    console.log(baseURL)
     const app_context = useContext(Context);
     const { columns, setColumns } = app_context;
     const { rows, setRows} = app_context;
@@ -13,7 +15,7 @@ const Home = () => {
     const { errorType, setErrorType } = app_context;
   
     const loadData = async() => {
-      await axios.get('http://localhost:3002/')
+      await axios.get(baseURL)
       .then(function (response) {
       setColumns(Object.keys(response.data[0]));
       setRows(response.data)
@@ -27,7 +29,7 @@ const Home = () => {
     }
   
     const loadReports= async() => {
-        await axios.get('http://localhost:3002/reports')
+        await axios.get(`${baseURL}reports`)
         .then(function (response) {
             setReports(response.data.reportsAvailable)
         

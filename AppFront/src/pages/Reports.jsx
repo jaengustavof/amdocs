@@ -6,6 +6,7 @@ import ReportResults from '../components/table/ReportResults';
 import Error from '../components/error/Error';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
+import { baseURL } from '../config/config';
 
 const Reports = () => {
   const app_context = useContext(Context);
@@ -16,14 +17,15 @@ const Reports = () => {
 
 
   const loadSelectedReport = async() =>{
-    await axios.post('http://localhost:3002/reports/request', {report: selectedReport} )
+    await axios.post(`${baseURL}reports/request`, {report: selectedReport} )
     .then(function (response) {
       setReportColumns(response.data.response.columns)
       setData(response.data.response.data)
     })
     .catch(function (error) {
-    console.log(error);
-    console.log(error.message);
+      console.log(error);
+      console.log(error.message);
+      setErrorType(error)  
     })
   }
 
@@ -39,9 +41,7 @@ const Reports = () => {
         <div className="homeContainer p-4">
           <ReportResults/>
         </div>
-      </div>
-
-      
+      </div>   
     )
   }else if(errorType){
     return (
