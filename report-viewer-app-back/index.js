@@ -12,9 +12,6 @@ app.use(cors(options));
 app.use('/', content)
 app.use('/reports', reports)
 
-app.use((_, __, next) =>{
-  next(errors[404])
-});
 
 
 app.listen(PORT, () => {
