@@ -15,7 +15,7 @@ router.get('/', (req,res)=>{
             } 
         });
         JSON.stringify(reportsAvailable)
-        res.json({ reportsAvailable })
+        res.status(200).json({ reportsAvailable })
     });
 })
 

@@ -1,9 +1,8 @@
 const express = require("express");
 const app = express();
 const PORT = 3002;
-const content = require("./routes/content")
-const reports = require("./routes/reports")
-const path = require('path');
+const content = require("./routes/content");
+const reports = require("./routes/reports");
 const cors = require("cors");
 const options = require("./config/cors.js");
 
