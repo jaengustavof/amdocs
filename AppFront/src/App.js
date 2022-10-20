@@ -27,7 +27,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/reports" element={<Reports />} />
-            <Route path="/test" element={<NotFound />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </Context.Provider>
