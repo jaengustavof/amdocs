@@ -7,7 +7,7 @@ import Error from '../components/error/Error';
 import {baseURL} from '../config/config';
 
 const Home = () => {
-    console.log(baseURL)
+
     const app_context = useContext(Context);
     const { columns, setColumns } = app_context;
     const { rows, setRows} = app_context;
@@ -18,7 +18,7 @@ const Home = () => {
       await axios.get(baseURL)
       .then(function (response) {
       setColumns(Object.keys(response.data[0]));
-      setRows(response.data)
+      setRows(response.data);
       })
       .catch(function (error) {   
         console.log(error);

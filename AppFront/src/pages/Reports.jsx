@@ -19,6 +19,7 @@ const Reports = () => {
   const loadSelectedReport = async() =>{
     await axios.post(`${baseURL}reports/request`, {report: selectedReport} )
     .then(function (response) {
+      console.log(response)
       setReportColumns(response.data.response.columns)
       setData(response.data.response.data)
     })

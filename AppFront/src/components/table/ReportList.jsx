@@ -4,9 +4,10 @@ import Context from '../../context';
 import { useContext} from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSort } from '@fortawesome/free-solid-svg-icons'
-import Table from 'react-bootstrap/Table';
+
 
 
 const ReportList = () =>{
@@ -92,7 +93,7 @@ const ReportList = () =>{
               <td>
               <select name="period" id={"period"+index}>
               {reports.map((report, indx) => (
-                report.startsWith(row.id,'-')?<option key={report} value={report}>{report.substring(report.indexOf('-')+1, report.indexOf('.'))}</option>:null
+                report.startsWith(row.id,'-')?<option key={indx} value={report}>{report.substring(report.indexOf('-')+1, report.indexOf('.'))}</option>:null
               ))}
 
               </select>
@@ -102,10 +103,6 @@ const ReportList = () =>{
                 View
               </Button>
               </td>
-              <td>
-              
-              </td>
-
             </tr>
           ))}   
         </tbody>
